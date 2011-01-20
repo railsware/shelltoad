@@ -1,14 +1,19 @@
 require "yaml"
 
 
-class ShellToad::Config
+class ShellToad
+end
+class ShellToad::Configuration
 
-  def instance
+  def self.instance
     @instance ||= self.new
   end
+
   def initialize
     if File.exists?(".shelltoadrc")
       @config = YAML.load(File.new(".shelltoadrc"))
+    else
+      raise NoConfigfile, "No .shelltoadrc file under current directory"
     end
   end
 

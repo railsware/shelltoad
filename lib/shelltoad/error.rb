@@ -1,8 +1,10 @@
+require "active_resource"
+
 class Shelltoad::Error < ActiveResource::Base
-  self.site = "http://#{Config.project}.hoptoadapp.com"
+  self.site = "http://#{Shelltoad::Configuration.project}.hoptoadapp.com"
 
   class << self
-    @@auth_token = Config.key
+    @@auth_token = Shelltoad::Configuration.key
 
     def find(*arguments)
       arguments = append_auth_token_to_params(*arguments)
