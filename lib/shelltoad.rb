@@ -1,6 +1,6 @@
 class Shelltoad
 end
-require "shelltoad/config"
+require "shelltoad/configuration"
 require "shelltoad/error"
 require "shelltoad/exceptions"
 

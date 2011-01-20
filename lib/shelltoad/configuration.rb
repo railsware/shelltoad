@@ -1,9 +1,7 @@
 require "yaml"
 
 
-class ShellToad
-end
-class ShellToad::Configuration
+class Shelltoad::Configuration
 
   def self.instance
     @instance ||= self.new

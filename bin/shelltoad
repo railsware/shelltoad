@@ -8,15 +8,15 @@ command = ARGV.shift
 
 case command
 when "errors", "ers", nil
-  ShellToad::Error.find(:all).each do |error|
+  Shelltoad::Error.find(:all).each do |error|
     unless error.rails_env == "development"
       puts error.to_s
     end
   end
 when "error", /^[\d]/
-  puts ShellToad::Error.magic_find(ARGV.shift) || "Not found"
+  puts Shelltoad::Error.magic_find(ARGV.shift) || "Not found"
 when "commit"
-  if error = ShellToad::Error.magic_find(ARGV.shift)
+  if error = Shelltoad::Error.magic_find(ARGV.shift)
     message = <<-EOI.gsub(/`/, "'")
 #{Hoptoad.site}/errors/#{error.id}
 
