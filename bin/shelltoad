@@ -13,12 +13,12 @@ when "errors", "ers", nil
       puts error.to_s
     end
   end
-when "error", "er", /^[\d]/
+when "error", "er"
   puts Shelltoad::Error.magic_find(ARGV.shift) || "Not found"
 when "commit", "ci"
   if error = Shelltoad::Error.magic_find(ARGV.shift)
     message = <<-EOI.gsub(/`/, "'")
-#{Error.site}/errors/#{error.id}
+#{Shelltoad::Error.site}/errors/#{error.id}
 
 #{error.error_message}
 EOI
@@ -26,5 +26,7 @@ EOI
   else
     puts "Not Found"
   end
+when /^[\d]/
+  puts Shelltoad::Error.magic_find(command) || "Not found"
 end
 
