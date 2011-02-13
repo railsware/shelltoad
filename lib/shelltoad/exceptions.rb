@@ -1,8 +1,8 @@
-class NoApiKey < StandardError
+class Shelltoad::NoApiKey < StandardError
 end
 
-class NoProject < StandardError
+class Shelltoad::NoProject < StandardError
 end
 
-class NoConfigfile < StandardError
+class Shelltoad::NoConfigfile < StandardError
 end

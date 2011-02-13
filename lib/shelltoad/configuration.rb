@@ -11,7 +11,7 @@ class Shelltoad::Configuration
     if File.exists?(".shelltoadrc")
       @config = YAML.load(File.new(".shelltoadrc"))
     else
-      raise NoConfigfile, "No .shelltoadrc file under current directory"
+      raise ::Shelltoad::NoConfigfile, "No .shelltoadrc file under current directory"
     end
   end
 
@@ -24,11 +24,11 @@ class Shelltoad::Configuration
   end
 
   def key
-    @config["key"] || raise(NoApiKey, "key option not specified in .shelltoadrc")
+    @config && @config["key"] || raise(::Shelltoad::NoApiKey, "key option not specified in .shelltoadrc")
   end
 
   def project
-    @config["project"] || raise(NoProject, "project option not specified in .shelltoadrc")
+    @config && @config["project"] || raise(::Shelltoad::NoProject, "project option not specified in .shelltoadrc")
   end
 end
   

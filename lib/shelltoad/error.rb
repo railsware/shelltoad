@@ -1,7 +1,11 @@
 require "active_resource"
+require "net/http"
+require "uri"
+require "cgi"
 
 class Shelltoad::Error < ActiveResource::Base
-  self.site = "http://#{::Shelltoad::Configuration.project}.hoptoadapp.com"
+  URL = URI.parse("http://#{::Shelltoad::Configuration.project}.hoptoadapp.com")
+  self.site = URL.to_s
 
   class << self
     @@auth_token = ::Shelltoad::Configuration.key
@@ -28,6 +32,21 @@ class Shelltoad::Error < ActiveResource::Base
     self.all(:params => {:show_resolved => true}).find do |error|
       error.id.to_s =~ /#{id}$/
     end
+  end
+
+  def data
+    @data ||= Hash.from_xml(http_get("/errors/#{self.id}.xml", :auth_token => ::Shelltoad::Configuration.key)).with_indifferent_access[:group]
+  end
+  def view
+    <<-EOI
+#{data[:error_message]}
+#{data[:backtrace][:line].join("\n")}
+EOI
+  end
+
+  def http_get(path, params = {})
+    query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
+    return Net::HTTP.get(URL.host, query)
   end
 
   def to_s
