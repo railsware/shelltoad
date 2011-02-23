@@ -7,4 +7,5 @@ gem "rake"
 group :test do
   gem 'rspec'
   gem 'fakeweb'
+  gem "mocha"
 end # do

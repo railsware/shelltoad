@@ -44,6 +44,15 @@ class Shelltoad::Error < ActiveResource::Base
 EOI
   end
 
+  def commit
+    message = <<-EOI.gsub(/`/, "'")
+    #{self.class.site}/errors/#{self.id}
+
+    #{self.error_message}
+    EOI
+    `git commit -m "#{message}"`
+  end
+
   def http_get(path, params = {})
     query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
     return Net::HTTP.get(URL.host, query)

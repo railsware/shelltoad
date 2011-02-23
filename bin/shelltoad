@@ -4,29 +4,6 @@ require "rubygems"
 require "active_resource"
 require "shelltoad"
 
-command = ARGV.shift
 
-case command
-when "errors", "ers", nil
-  Shelltoad::Error.find(:all).each do |error|
-    unless error.rails_env == "development"
-      puts error.to_s
-    end
-  end
-when "error", "er"
-  puts Shelltoad::Error.magic_find(ARGV.shift).view || "Not found"
-when "commit", "ci"
-  if error = Shelltoad::Error.magic_find(ARGV.shift)
-    message = <<-EOI.gsub(/`/, "'")
-#{Shelltoad::Error.site}/errors/#{error.id}
-
-#{error.error_message}
-EOI
-    puts `git commit -m "#{message}"`
-  else
-    puts "Not Found"
-  end
-when /^[\d]/
-  puts Shelltoad::Error.magic_find(command).view || "Not found"
-end
+Shelltoad.run(ARGV.shift, ARGV)
 

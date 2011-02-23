@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<group> 
+  <created-at type="datetime">2011-02-19T05:21:22Z</created-at> 
+  <notice-hash>35e4550dade34065bcb1b1e8a92d73ec</notice-hash> 
+  <project-id type="integer">14951</project-id> 
+  <updated-at type="datetime">2011-02-19T05:21:22Z</updated-at> 
+  <action nil="true"></action> 
+  <resolved type="boolean">false</resolved> 
+  <error-class>ActiveRecord::StatementInvalid</error-class> 
+  <error-message>ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates unique constraint "index_companies_on_slug" : INSERT INTO "companies" ("slug", "created_at", "title", "updated_at", "external_url", "logo_id", "custom") VALUES('abbott-associates</error-message> 
+  <id type="integer">4023713</id> 
+  <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+  <controller>domU-12-31-39-15-22-AC:14720:critical,high,medium,low</controller> 
+  <file>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb</file> 
+  <rails-env>production</rails-env> 
+  <line-number type="integer">221</line-number> 
+  <most-recent-notice-at type="datetime">2011-02-19T05:21:22Z</most-recent-notice-at> 
+  <notices-count type="integer">1</notices-count> 
+  <environment> 
+  </environment> 
+  <session> 
+    <data> 
+    </data> 
+  </session> 
+  <request> 
+    <rails-root></rails-root> 
+    <url>medium</url> 
+    <params> 
+      <payload-args>1861</payload-args> 
+      <action></action> 
+      <payload-class>PopulateLinkedinWorker</payload-class> 
+      <controller>domU-12-31-39-15-22-AC:14720:critical,high,medium,low</controller> 
+    </params> 
+  </request> 
+  <backtrace> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb:221</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/postgresql_adapter.rb:520</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/postgresql_adapter.rb:1002</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/postgresql_adapter.rb:989</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/database_statements.rb:7</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:62</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/database_statements.rb:13</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/database_statements.rb:19</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/postgresql_adapter.rb:460</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb:2949</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/timestamp.rb:53</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/callbacks.rb:266</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb:2915</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/callbacks.rb:250</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb:2590</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/validations.rb:1100</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/dirty.rb:87</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:200</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/database_statements.rb:136</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:182</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/ar_after_transaction-0.1.1/lib/ar_after_transaction.rb:19</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:200</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:208</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:200</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/models/company.rb:50</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:9</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:74</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:70</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:70</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:63</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:63</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/database_statements.rb:136</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/transactions.rb:182</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/ar_after_transaction-0.1.1/lib/ar_after_transaction.rb:19</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:62</line> 
+    <line>/var/data/www/apps/startwire/releases/20110218113457/app/workers/populate_linkedin_worker.rb:10</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/job.rb:133</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/worker.rb:157</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/worker.rb:124</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/worker.rb:110</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/worker.rb:110</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/resque-1.10.0/lib/resque/tasks.rb:24</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597</line> 
+    <line>/usr/local/ruby-enterprise/lib/ruby/1.8/monitor.rb:242</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/rake-0.8.7/bin/rake:31</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/bin/rake:19</line> 
+    <line>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/bin/rake:19</line> 
+  </backtrace> 
+</group> 

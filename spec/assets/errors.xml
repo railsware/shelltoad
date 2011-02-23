@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<groups type="array"> 
+  <group> 
+    <created-at type="datetime">2011-02-22T11:35:44Z</created-at> 
+    <notice-hash>07d1efc2b27234e027c1b3a3f456437a</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-22T11:35:45Z</updated-at> 
+    <action>create</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `last_job_title' for nil:NilClass</error-message> 
+    <id type="integer">4040123</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>wizard/registration</controller> 
+    <file>[PROJECT_ROOT]/app/models/job_search.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">32</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-22T11:35:44Z</most-recent-notice-at> 
+    <notices-count type="integer">6</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-22T10:00:13Z</created-at> 
+    <notice-hash>514bc156b11137c1ab23cca9482d6d03</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-22T10:00:13Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>REXML::ParseException</error-class> 
+    <error-message>REXML::ParseException: #&lt;REXML::ParseException: Missing end tag for 'HR' (got "body") Line: Position: Last 80 unconsumed characters: &lt;/html&gt;&gt; /usr/local/lib/ruby/1.8/rexml/parsers/baseparser.rb:330:in `pull' /usr/local/lib/ruby/1.8/rexml/parsers/treeparse</error-message> 
+    <id type="integer">4039950</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:21565:critical,high,medium,low</controller> 
+    <file>/usr/local/lib/ruby/1.8/rexml/parsers/treeparser.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">92</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-22T10:00:13Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-22T01:10:08Z</created-at> 
+    <notice-hash>51893004078b6d77de7584f577e44f93</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-22T02:17:28Z</updated-at> 
+    <action>saved</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `&gt;' for nil:NilClass</error-message> 
+    <id type="integer">4038121</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>recommended_jobs</controller> 
+    <file>[PROJECT_ROOT]/app/views/recommended_jobs/_recommended_job.html.erb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">28</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-22T02:17:28Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T17:50:56Z</created-at> 
+    <notice-hash>d4a6dcdbfbc8ef9b09f40672f53290ed</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T17:50:56Z</updated-at> 
+    <action>update</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActionView::MissingTemplate</error-class> 
+    <error-message>ActionView::MissingTemplate: Missing template company_relations/new.erb in view path app/views:vendor/plugins/rails-ckeditor/app/views</error-message> 
+    <id type="integer">4035855</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>company_relations</controller> 
+    <file>[GEM_ROOT]/gems/actionpack-2.3.8/lib/action_view/paths.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">74</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T17:50:56Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T17:42:11Z</created-at> 
+    <notice-hash>feb0541002dfac52f97691e16c4d7c40</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T17:42:11Z</updated-at> 
+    <action>search</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::StatementInvalid</error-class> 
+    <error-message>ActiveRecord::StatementInvalid: PGError: ERROR: value too long for type character varying(255) : UPDATE "job_searches" SET "updated_at" = '2011-02-21 17:42:11.445629', "query" = 'Banker (company:"Pearson Education" OR company:"RTI International" OR compan</error-message> 
+    <id type="integer">4035809</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>recommended_jobs</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">221</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T17:42:11Z</most-recent-notice-at> 
+    <notices-count type="integer">4</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T17:23:45Z</created-at> 
+    <notice-hash>bd160b8ca5f09eea0606a947f6c32b22</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T17:29:10Z</updated-at> 
+    <action>callback</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::RecordInvalid</error-class> 
+    <error-message>ActiveRecord::RecordInvalid: Validation failed: Email Email has already been taken</error-message> 
+    <id type="integer">4035717</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>facebook</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/validations.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">1102</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T17:29:10Z</most-recent-notice-at> 
+    <notices-count type="integer">3</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T16:49:26Z</created-at> 
+    <notice-hash>01d7374ce84cad903ccd1751b8f1bffb</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T16:49:27Z</updated-at> 
+    <action>create</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `+' for nil:NilClass</error-message> 
+    <id type="integer">4035491</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>wizard/distribution</controller> 
+    <file>[PROJECT_ROOT]/app/models/profile.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">96</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T16:49:26Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T15:45:48Z</created-at> 
+    <notice-hash>d100b8bc7c30a9d7c82b80ef6786ec5a</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T15:45:49Z</updated-at> 
+    <action>index</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `include?' for nil:NilClass</error-message> 
+    <id type="integer">4034881</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>wizard/distribution</controller> 
+    <file>[PROJECT_ROOT]/app/views/wizard/distribution/_form.html.erb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">7</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T15:45:48Z</most-recent-notice-at> 
+    <notices-count type="integer">4</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T15:35:48Z</created-at> 
+    <notice-hash>f53eb54f141274fe1a2ba00ca9346e42</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T15:41:20Z</updated-at> 
+    <action>create</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::RecordInvalid</error-class> 
+    <error-message>ActiveRecord::RecordInvalid: Validation failed: Owner Required field</error-message> 
+    <id type="integer">4034812</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>users/community_ideas</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/validations.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">1102</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T15:41:20Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T13:00:05Z</created-at> 
+    <notice-hash>8888661d2225ccdb10b7ae8ece969554</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T13:00:06Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: aggreggation_status</error-message> 
+    <id type="integer">4033654</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:832:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T13:00:05Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T13:00:03Z</created-at> 
+    <notice-hash>ad625c6ada932342ce267674fc2f1909</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T13:00:03Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: aggreggation_status</error-message> 
+    <id type="integer">4033653</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:838:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T13:00:03Z</most-recent-notice-at> 
+    <notices-count type="integer">3</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T12:30:09Z</created-at> 
+    <notice-hash>e1ced3863141aa4d671567c178e2c0b0</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T12:45:30Z</updated-at> 
+    <action>create</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `aggregator_module' for nil:NilClass</error-message> 
+    <id type="integer">4033441</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>company_relations</controller> 
+    <file>[PROJECT_ROOT]/app/models/company_relation.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">126</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T12:45:30Z</most-recent-notice-at> 
+    <notices-count type="integer">5</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T11:30:04Z</created-at> 
+    <notice-hash>0b02d20aa8f12424d315f2d3600ad112</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T12:30:04Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4033163</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:28828:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T12:30:04Z</most-recent-notice-at> 
+    <notices-count type="integer">7</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T11:30:04Z</created-at> 
+    <notice-hash>cbac062953f6cef5b2b9506a0565af90</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T12:30:04Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4033164</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:28829:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T12:30:04Z</most-recent-notice-at> 
+    <notices-count type="integer">8</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T11:00:06Z</created-at> 
+    <notice-hash>d60c9611a84286fcca844338df86323d</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T11:00:06Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4033027</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:26966:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T11:00:06Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T11:00:04Z</created-at> 
+    <notice-hash>832d21b5e1bfd0a21745925dcf4216c9</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T11:00:04Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4033026</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:26970:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T11:00:04Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T10:45:53Z</created-at> 
+    <notice-hash>701f3b3b21234c43b71ffbc8e9c1004f</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T10:45:54Z</updated-at> 
+    <action>search</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActionView::MissingTemplate</error-class> 
+    <error-message>ActionView::MissingTemplate: Missing template recommended_jobs/_inline_distribution.erb in view path app/views:vendor/plugins/rails-ckeditor/app/views</error-message> 
+    <id type="integer">4032732</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>recommended_jobs</controller> 
+    <file>[GEM_ROOT]/gems/actionpack-2.3.8/lib/action_view/paths.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">74</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T10:45:53Z</most-recent-notice-at> 
+    <notices-count type="integer">5</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T00:30:02Z</created-at> 
+    <notice-hash>040980828353bc8f554fbb8592b7e7c1</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T10:30:06Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4030382</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:5424:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T10:30:06Z</most-recent-notice-at> 
+    <notices-count type="integer">32</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-21T00:30:03Z</created-at> 
+    <notice-hash>fb230422bab04c57f1c08c6a757738f5</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-21T09:30:10Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::UnknownAttributeError</error-class> 
+    <error-message>ActiveRecord::UnknownAttributeError: unknown attribute: status</error-message> 
+    <id type="integer">4030383</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:5420:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/base.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">2906</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-21T09:30:01Z</most-recent-notice-at> 
+    <notices-count type="integer">31</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-20T09:31:06Z</created-at> 
+    <notice-hash>b4f28a6f22fb9368fc24743d5bf2a3ea</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-20T09:31:06Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>Timeout::Error</error-class> 
+    <error-message>Timeout::Error: execution expired</error-message> 
+    <id type="integer">4027988</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:24441:critical,high,medium,low</controller> 
+    <file>/usr/local/lib/ruby/1.8/timeout.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">60</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-20T09:31:06Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-19T05:21:22Z</created-at> 
+    <notice-hash>35e4550dade34065bcb1b1e8a92d73ec</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-19T05:21:22Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">false</resolved> 
+    <error-class>ActiveRecord::StatementInvalid</error-class> 
+    <error-message>ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates unique constraint "index_companies_on_slug" : INSERT INTO "companies" ("slug", "created_at", "title", "updated_at", "external_url", "logo_id", "custom") VALUES('abbott-associates</error-message> 
+    <id type="integer">4023713</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-15-22-AC:14720:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb</file> 
+    <rails-env>production</rails-env> 
+    <line-number type="integer">221</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-19T05:21:22Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-17T15:41:38Z</created-at> 
+    <notice-hash>bb0de0d771dc4d54dcb8a2005249c7be</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T14:58:19Z</updated-at> 
+    <action>new</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>Errno::ENOENT</error-class> 
+    <error-message>Errno::ENOENT: No such file or directory - /var/data/www/apps/sw-dev/releases/20110218144926/config/dev_rsakey.pem</error-message> 
+    <id type="integer">3999523</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>gmail</controller> 
+    <file>[GEM_ROOT]/gems/oauth-0.4.2/lib/oauth/signature/rsa/sha1.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">37</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T14:58:19Z</most-recent-notice-at> 
+    <notices-count type="integer">4</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-17T12:58:52Z</created-at> 
+    <notice-hash>95368bf8f6281ea3af98ca73424df035</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T14:36:22Z</updated-at> 
+    <action>show</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `external_applications' for #&lt;AdminUser:0xcd68fc4&gt;</error-message> 
+    <id type="integer">3998554</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>community/users/advice_requests</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/attribute_methods.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">264</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T14:36:22Z</most-recent-notice-at> 
+    <notices-count type="integer">5</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-17T15:38:35Z</created-at> 
+    <notice-hash>468487964f8d6a80815009ef2e950904</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T13:54:50Z</updated-at> 
+    <action>index</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `external_applications' for #&lt;AdminUser:0xceeab68&gt;</error-message> 
+    <id type="integer">3999504</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>community/users/feed_items</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/attribute_methods.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">264</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T13:54:49Z</most-recent-notice-at> 
+    <notices-count type="integer">3</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-18T11:13:58Z</created-at> 
+    <notice-hash>d8a41a7f8b7dda4e4d22f9adb2951e66</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T11:13:58Z</updated-at> 
+    <action>update</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>ActiveRecord::RecordInvalid</error-class> 
+    <error-message>ActiveRecord::RecordInvalid: Validation failed: Location title Not found. Please refine your input or choose one of the suggested locations.</error-message> 
+    <id type="integer">4005962</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>company_relations</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/validations.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">1102</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T11:13:58Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-18T11:00:06Z</created-at> 
+    <notice-hash>5587a31c5b72695ead28d30ae2802afa</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T11:00:07Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>TypeError</error-class> 
+    <error-message>TypeError: can't convert String into Integer</error-message> 
+    <id type="integer">4005877</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:8648:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/releases/20110218104409/app/utils/rti_status_aggregator.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">5</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T11:00:06Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-18T10:55:11Z</created-at> 
+    <notice-hash>757d754d054ff4e72f25827a8f82a192</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-18T10:55:12Z</updated-at> 
+    <action>update</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>TypeError</error-class> 
+    <error-message>TypeError: can't convert String into Integer</error-message> 
+    <id type="integer">4005843</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>company_relations</controller> 
+    <file>[PROJECT_ROOT]/app/utils/rti_status_aggregator.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">5</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-18T10:55:11Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-17T21:10:17Z</created-at> 
+    <notice-hash>936dcc8cfd764e57c3d5fdaeea774660</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-17T21:10:18Z</updated-at> 
+    <action>show</action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>NoMethodError</error-class> 
+    <error-message>NoMethodError: undefined method `advice_requests' for #&lt;AdminUser:0x62bebd8&gt;</error-message> 
+    <id type="integer">4001870</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>advice_requests</controller> 
+    <file>[GEM_ROOT]/gems/activerecord-2.3.8/lib/active_record/attribute_methods.rb</file> 
+    <rails-env>production</rails-env> 
+    <line-number type="integer">264</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-17T21:10:17Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-16T16:10:10Z</created-at> 
+    <notice-hash>21fafb4da66843083df247e797e9fb06</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-16T16:10:10Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>LinkedIn::RateLimitExceeded</error-class> 
+    <error-message>LinkedIn::RateLimitExceeded: (400): Bad Request - 0</error-message> 
+    <id type="integer">3991359</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:7870:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/releases/20110216160136/vendor/plugins/linkedin/lib/linked_in/client.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">197</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-16T16:10:10Z</most-recent-notice-at> 
+    <notices-count type="integer">1</notices-count> 
+  </group> 
+  <group> 
+    <created-at type="datetime">2011-02-16T16:10:08Z</created-at> 
+    <notice-hash>4f6ae1bad89a45b80fbd2806c0791030</notice-hash> 
+    <project-id type="integer">14951</project-id> 
+    <updated-at type="datetime">2011-02-16T16:10:09Z</updated-at> 
+    <action nil="true"></action> 
+    <resolved type="boolean">true</resolved> 
+    <error-class>LinkedIn::RateLimitExceeded</error-class> 
+    <error-message>LinkedIn::RateLimitExceeded: (400): Bad Request - 0</error-message> 
+    <id type="integer">3991357</id> 
+    <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
+    <controller>domU-12-31-39-09-65-14:7872:critical,high,medium,low</controller> 
+    <file>/var/data/www/apps/sw-dev/releases/20110216160136/vendor/plugins/linkedin/lib/linked_in/client.rb</file> 
+    <rails-env>dev</rails-env> 
+    <line-number type="integer">197</line-number> 
+    <most-recent-notice-at type="datetime">2011-02-16T16:10:08Z</most-recent-notice-at> 
+    <notices-count type="integer">2</notices-count> 
+  </group> 
+</groups> 
