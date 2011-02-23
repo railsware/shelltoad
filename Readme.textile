@@ -2,11 +2,19 @@ h2. Shelltoad
 
 Console interface for Hoptoad. (http://hoptoadapp.com)
 
+h3. Configuration
+
+Create <pre><code>.shelltoadrc</code></pre> file in your project directory 
+with the application name and access key:
+<pre><code>project: myapp
+key: c285743ecbc285743ecbc285743ecbc285743ecb</code></pre> 
+
 h3. Usage
 
 <pre><code>$ shelltoad 
 [#3374331] production ActionController::MethodNotAllowed: Only put requests are allowed. [GEM_ROOT]/gems/actionpack-2.3.8/lib/action_controller/routing/recognition_optimisation.rb:64
 [#4023713] production ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates unique constraint "index_companies_on_slug" : INSERT INTO "companies" ("slug", "created_at", "title", "updated_at", "external_url", "logo_id", "custom") VALUES('abbott-associates /var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb:221
+
 
 $ shelltoad 713 # stands for 4023713
 ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates unique constraint "index_companies_on_slug" : INSERT INTO "companies" ("slug", "created_at", "title", "updated_at", "external_url", "logo_id", "custom") VALUES('abbott-associates
@@ -19,9 +27,7 @@ ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates uni
 /var/data/www/apps/startwire/releases/20110218113457/app/utils/network_map/populate.rb:70
 ....
 
-$ shelltoad commit 713 
 
 # Do changes you want
-
 $ shelltoad commit 713</code></pre>
 
