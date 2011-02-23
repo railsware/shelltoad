@@ -50,7 +50,7 @@ EOI
 
     #{self.error_message}
     EOI
-    `git commit -m "#{message}"`
+    Shelltoad.output `git commit -m "#{message}"`
   end
 
   def http_get(path, params = {})

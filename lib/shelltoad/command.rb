@@ -4,7 +4,6 @@ class Shelltoad::Command
     case command
     when "errors", "ers", nil
       Shelltoad::Error.find(:all).each do |error|
-        Shelltoad.output 'ee'
         unless error.rails_env == "development"
           Shelltoad.output error.to_s
         end
