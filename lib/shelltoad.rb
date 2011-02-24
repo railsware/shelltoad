@@ -15,7 +15,7 @@ class Shelltoad
   end
 
   def self.output(string)
-    ::Shelltoad::STDOUT << "#{string}\n"
+    ::Shelltoad::STDOUT << "#{string.strip}\n"
   end
 
   def output(string)
