@@ -1,42 +1,41 @@
-require "active_resource"
+require "active_support/core_ext/hash/conversions"
+require "active_support/core_ext/hash/indifferent_access"
 require "net/http"
 require "uri"
 require "cgi"
 
-class Shelltoad::Error < ActiveResource::Base
+class Shelltoad::Error
+
   URL = URI.parse("http://#{::Shelltoad::Configuration.project}.hoptoadapp.com")
-  self.site = URL.to_s
 
-  class << self
-    @@auth_token = ::Shelltoad::Configuration.key
-
-    def find(*arguments)
-      arguments = append_auth_token_to_params(*arguments)
-      super(*arguments)
-    end
-
-    def append_auth_token_to_params(*arguments)
-      opts = arguments.last.is_a?(Hash) ? arguments.pop : {}
-      opts = opts.has_key?(:params) ? opts : opts.merge(:params => {})
-      opts[:params] = opts[:params].merge(:auth_token => @@auth_token)
-      arguments << opts
-      arguments
-    end
-  end
-
+  #
+  # Class methods
+  #
+  
   def self.all(*args)
-    self.find :all, *args
+    parse(http_get("/errors.xml"))[:groups].map! do |attributes|
+      self.new(attributes)
+    end
   end
 
   def self.magic_find(id)
-    self.all(:params => {:show_resolved => true}).find do |error|
+    self.all(:show_resolved => true).find do |error|
       error.id.to_s =~ /#{id}$/
     end
   end
 
-  def data
-    @data ||= Hash.from_xml(http_get("/errors/#{self.id}.xml", :auth_token => ::Shelltoad::Configuration.key)).with_indifferent_access[:group]
+  #
+  # API
+  #
+  
+  def initialize(attributes)
+    @attributes = attributes
   end
+
+  def data
+    @data ||= self.class.parse(self.class.http_get(path('xml')))[:group]
+  end
+
   def view
     <<-EOI
 #{data[:error_message]}
@@ -46,22 +45,73 @@ EOI
 
   def commit
     message = <<-EOI.gsub(/`/, "'")
-    #{self.class.site}/errors/#{self.id}
+    #{url}
 
     #{self.error_message}
     EOI
-    Shelltoad.output `git commit -m "#{message}"`
+    output = `git commit -m "#{message}"`
+    if $?.success?
+      resolve!
+    end
+    output
   end
 
-  def http_get(path, params = {})
-    query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
-    return Net::HTTP.get(URL.host, query)
+  def resolve!
+    return true if self.resolved?
+    response = Net::HTTP.post_form(
+      url,
+      :"group[resolved]" => 1,
+      :format => "xml",
+      :_method => :put,
+      :auth_token => ::Shelltoad::Configuration.key
+    )
+    raise "HTTP error: #{response}" unless response.is_a?(Net::HTTPSuccess)
+    true
   end
+
 
   def to_s
     "[##{self.id}] #{self.rails_env.first} #{self.error_message} #{self.file}:#{self.line_number}"
   end
 
+  def id
+    @attributes[:id]
+  end
+
+  def resolved?
+    @attributes[:resolved]
+  end
+
+  def method_missing(meth, *args, &blk)
+    if attr = @attributes[meth]
+      attr
+    else
+      super(meth, *args, &blk)
+    end
+  end
+
+  #
+  # Implementation
+  #
+  
+  protected
+  def path(format = nil)
+    "/errors/#{self.id}" + (format ? ".#{format}" : "")
+  end
+
+  def url(format = nil)
+    URI.parse(URL.to_s + path(format))
+  end
+
+  def self.http_get(path, params = {})
+    params[:auth_token] = ::Shelltoad::Configuration.key
+    query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
+    return Net::HTTP.get(URL.host, query)
+  end
+
+  def self.parse(string)
+    Hash.from_xml(string).with_indifferent_access
+  end
 
 end
 
