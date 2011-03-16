@@ -9,6 +9,12 @@ with the application name and access key:
 <pre><code>project: myapp
 key: c285743ecbc285743ecbc285743ecbc285743ecb</code></pre> 
 
+h3. Commands
+
+* errors, ers - list all unresolved errors, this is the default
+* error, er [number] - display information about given error. Shortcut: shelltoad [number]
+* commit, ci [number] - do commit to vcs with the information on the specified error
+
 h3. Usage
 
 <pre><code>$ shelltoad 
@@ -29,5 +35,9 @@ ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates uni
 
 
 # Do changes you want
-$ shelltoad commit 713</code></pre>
+$ git add .
+#only git is supported right now
+$ shelltoad commit 713 
+[dev 47f09ec]     http://xxx.hoptoadapp.com//errors/4023713
+ 1 files changed, 1 insertions(+), 1 deletions(-)</code></pre>
 
