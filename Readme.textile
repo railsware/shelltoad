@@ -15,6 +15,9 @@ h3. Commands
 * error, er [number] - display information about given error. Shortcut: shelltoad [number]
 * commit, ci [number] - do commit to vcs with the information on the specified error
 
+Shelltoad supports 'magicfind' in all comments: 
+You don't need to type all whole error id - just last three numbers is enough.
+
 h3. Usage
 
 <pre><code>$ shelltoad 
