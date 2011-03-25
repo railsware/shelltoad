@@ -16,7 +16,8 @@ class Shelltoad::Command
       end
     when "resolve", "rv" 
       Shelltoad::Error.magic_find(args.shift) do |error|
-        output error.resolve!
+        error.resolve!
+        output "Error #{error.id} marked as resolved"
       end
     when /^[\d]/
       Shelltoad::Error.magic_find(command) do |error|
@@ -24,8 +25,8 @@ class Shelltoad::Command
       end
     end
     return true
-  rescue ErrorNotFound => e
-    puts e.message
+  rescue Shelltoad::ErrorNotFound => e
+    output e.message
   end
 
   def self.output(*args)

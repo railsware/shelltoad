@@ -22,7 +22,7 @@ class Shelltoad::Error
     error = self.all(:show_resolved => true).find do |error|
       error.id.to_s =~ /#{id}$/
     end
-    raise ErrorNotFound, "Error with id:#{id} not found" unless error
+    raise Shelltoad::ErrorNotFound, "Error with id:#{id} not found" unless error
     if block_given?
       yield(error)
     end
