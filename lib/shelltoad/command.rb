@@ -7,26 +7,30 @@ class Shelltoad::Command
         output error.to_s
       end
     when "error", "er"
-      Shelltoad::Error.magic_find(args.shift) do |error|
+      magic_find(args.shift) do |error|
         output error.view
       end
     when "commit", "ci"
-      Shelltoad::Error.magic_find(args.shift) do |error|
+      magic_find(args.shift) do |error|
         output error.commit!
       end
     when "resolve", "rv" 
-      Shelltoad::Error.magic_find(args.shift) do |error|
+      magic_find(args.shift) do |error|
         error.resolve!
         output "Error #{error.id} marked as resolved"
       end
     when /^[\d]/
-      Shelltoad::Error.magic_find(command) do |error|
+      magic_find(command) do |error|
         output error.view
       end
     end
     return true
   rescue Shelltoad::ErrorNotFound => e
     output e.message
+  end
+
+  def self.magic_find(*args)
+    Shelltoad::Error.magic_find(*args)
   end
 
   def self.output(*args)
