@@ -6,3 +6,6 @@ end
 
 class Shelltoad::NoConfigfile < StandardError
 end
+
+class Shelltoad::ErrorNotFound < StandardError
+end

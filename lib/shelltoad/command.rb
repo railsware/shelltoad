@@ -4,21 +4,31 @@ class Shelltoad::Command
     case command
     when "errors", "ers", nil
       Shelltoad::Error.all.each do |error|
-        unless error.rails_env == "development"
-          Shelltoad.output error.to_s
-        end
+        output error.to_s
       end
     when "error", "er"
-      Shelltoad.output Shelltoad::Error.magic_find(args.shift).view || "Not found"
+      Shelltoad::Error.magic_find(args.shift) do |error|
+        output error.view
+      end
     when "commit", "ci"
-      if error = Shelltoad::Error.magic_find(args.shift)
-        Shelltoad.output error.commit
-      else
-        Shelltoad.output "Not Found"
+      Shelltoad::Error.magic_find(args.shift) do |error|
+        output error.commit!
+      end
+    when "resolve", "rv" 
+      Shelltoad::Error.magic_find(args.shift) do |error|
+        output error.resolve!
       end
     when /^[\d]/
-      Shelltoad.output Shelltoad::Error.magic_find(command).view || "Not found"
+      Shelltoad::Error.magic_find(command) do |error|
+        output error.view
+      end
     end
     return true
+  rescue ErrorNotFound => e
+    puts e.message
+  end
+
+  def self.output(*args)
+    Shelltoad.output(*args)
   end
 end
