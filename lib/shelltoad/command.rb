@@ -25,7 +25,7 @@ class Shelltoad::Command
       end
     end
     return true
-  rescue Shelltoad::ErrorNotFound => e
+  rescue Shelltoad::BaseException => e
     output e.message
   end
 

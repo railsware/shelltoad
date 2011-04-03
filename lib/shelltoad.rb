@@ -8,14 +8,14 @@ require "shelltoad/command"
 
 class Shelltoad
 
-  STDOUT = ::STDOUT
+  OUTPUT = ::STDOUT
 
   def self.run(*args)
     Command.run(*args)
   end
 
   def self.output(string)
-    ::Shelltoad::STDOUT << "#{string.to_s.strip}\n"
+    OUTPUT << "#{string.to_s.strip}\n"
   end
 
   def output(string)

@@ -111,7 +111,12 @@ EOI
   def self.http_get(path, params = {})
     params[:auth_token] = ::Shelltoad::Configuration.key
     query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
-    return Net::HTTP.get(URL.host, query)
+    @http ||= Net::HTTP.new(URL.host)
+    response = @http.get(query)
+    raise Shelltoad::ServiceNotAvailable.new(<<-EOI) unless response.is_a?(Net::HTTPSuccess)
+Hoptoad service not available. HTTP response:\n#{response.body}
+EOI
+    return response.body
   end
 
   def self.parse(string)

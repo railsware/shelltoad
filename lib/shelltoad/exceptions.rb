@@ -1,11 +1,20 @@
-class Shelltoad::NoApiKey < StandardError
-end
+class Shelltoad
+  class BaseException < StandardError
+  end
 
-class Shelltoad::NoProject < StandardError
-end
+  class NoApiKey < BaseException
+  end
 
-class Shelltoad::NoConfigfile < StandardError
-end
+  class NoProject < BaseException
+  end
 
-class Shelltoad::ErrorNotFound < StandardError
+  class NoConfigfile < BaseException
+  end
+
+  class ErrorNotFound < BaseException
+  end
+
+  class ServiceNotAvailable < BaseException
+  end
+
 end
