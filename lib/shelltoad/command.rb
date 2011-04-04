@@ -1,7 +1,7 @@
 class Shelltoad::Command
 
   def self.run(command, *args)
-    case command
+    case command.to_s
     when "errors", "ers", nil
       Shelltoad::Error.all.each do |error|
         output error.to_s
@@ -23,6 +23,8 @@ class Shelltoad::Command
       magic_find(command) do |error|
         output error.view
       end
+    else
+      raise Shelltoad::BaseException, "Command not found"
     end
     return 0
   rescue Shelltoad::BaseException => e
@@ -30,8 +32,8 @@ class Shelltoad::Command
     return 1
   end
 
-  def self.magic_find(*args)
-    Shelltoad::Error.magic_find(*args)
+  def self.magic_find(*args, &block)
+    Shelltoad::Error.magic_find(*args, &block)
   end
 
   def self.output(*args)
