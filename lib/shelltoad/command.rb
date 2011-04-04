@@ -2,7 +2,7 @@ class Shelltoad::Command
 
   def self.run(command, *args)
     case command.to_s
-    when "errors", "ers", nil
+    when "errors", "ers", nil, ""
       Shelltoad::Error.all.each do |error|
         output error.to_s
       end
