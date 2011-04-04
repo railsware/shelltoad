@@ -18,7 +18,6 @@ EOI
     gemspec.email = "agresso@gmail.com"
     gemspec.homepage = "http://github.com/railsware/shelltoad"
     gemspec.authors = ["Bogdan Gusiev"]
-    gemspec.add_dependency "activeresource"
     gemspec.executables = ["shelltoad"]
   end
 rescue LoadError

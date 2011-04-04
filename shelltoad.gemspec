@@ -5,17 +5,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shelltoad}
-  s.version = "0.2.1"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bogdan Gusiev"]
-  s.date = %q{2011-02-26}
+  s.date = %q{2011-04-04}
   s.default_executable = %q{shelltoad}
   s.description = %q{
 }
   s.email = %q{agresso@gmail.com}
   s.executables = ["shelltoad"]
   s.files = [
+    "Changelog.textile",
     "Gemfile",
     "Gemfile.lock",
     "Rakefile",
@@ -53,20 +54,17 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_runtime_dependency(%q<activeresource>, [">= 0"])
     else
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<i18n>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<activeresource>, [">= 0"])
     end
   else
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<i18n>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<activeresource>, [">= 0"])
   end
 end
 
