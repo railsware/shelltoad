@@ -1,0 +1,4 @@
+h3. 0.2.3
+
+* Add proper exit code on errors
+* Add code for pisimistic scenario for api calls
