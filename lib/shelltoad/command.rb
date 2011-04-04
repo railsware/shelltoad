@@ -24,10 +24,10 @@ class Shelltoad::Command
         output error.view
       end
     end
-    exit 0
+    return 0
   rescue Shelltoad::BaseException => e
     output e.message
-    exit 1
+    return 1
   end
 
   def self.magic_find(*args)

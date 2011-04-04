@@ -5,5 +5,5 @@ require "active_resource"
 require "shelltoad"
 
 
-Shelltoad.run(ARGV.shift, ARGV)
+exit Shelltoad.run(ARGV.shift, ARGV)
 
