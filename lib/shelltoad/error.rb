@@ -1,127 +1,126 @@
-require "active_support/core_ext/hash/conversions"
-require "active_support/core_ext/hash/indifferent_access"
-require "net/http"
 require "uri"
 require "cgi"
+require "hoptoad-api"
 
-class Shelltoad::Error
+class Shelltoad
+  class Error
 
-  URL = URI.parse("http://#{::Shelltoad::Configuration.project}.hoptoadapp.com")
+    URL = URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com:80")
 
-  #
-  # Class methods
-  #
-  
-  def self.all(*args)
-    parse(http_get("/errors.xml"))[:groups].map! do |attributes|
-      self.new(attributes)
+    #
+    # Class methods
+    #
+
+    def self.all(options = {})
+      options[:project_id] ||= Configuration.project_id if Configuration.project_id
+      Hoptoad::Error.find(:all, options).map! do |attributes|
+        self.new(attributes)
+      end
     end
-  end
 
-  def self.magic_find(id)
-    error = self.all(:show_resolved => true).find do |error|
-      error.id.to_s =~ /#{id}$/
+    def self.magic_find(id)
+      error = id.to_s.size > 5 ? simple_finder(id) : magic_finder(id)
+      if block_given?
+        return yield(error)
+      end
+      error
     end
-    raise Shelltoad::ErrorNotFound, "Error with id:#{id} not found" unless error
-    if block_given?
-      yield(error)
+
+    def self.magic_finder(id)
+      1.upto(3) do |page|
+        self.all(:show_resolved => true, :page => page).each do |error|
+          return self.new(error) if error.id.to_s =~ /#{id}$/
+        end
+      end
+      raise ErrorNotFound, "Error with id like *#{id} not found among last 90 errors.\n Try input full id."
     end
-    error
-  end
 
-  #
-  # API
-  #
-  
-  def initialize(attributes)
-    @attributes = attributes
-  end
-
-  def data
-    @data ||= self.class.parse(self.class.http_get(path('xml')))[:group]
-  end
-
-  def view
-    <<-EOI
-#{data[:error_message]}
-#{data[:backtrace][:line].join("\n")}
-EOI
-  end
-
-  def commit!
-    message = <<-EOI.gsub(/`/, "'")
-    #{url}
-
-    #{self.error_message}
-    EOI
-    output = `git commit -m "#{message}"`
-    if $?.success?
-      resolve!
+    def self.simple_finder(id)
+      attributes = Hoptoad::Error.find(id) || raise(ErrorNotFound, "Error with id #{id} not found under this account.")
+      self.new(attributes, true)
     end
-    output
-  end
 
-  def resolve!
-    return true if self.resolved?
-    response = Net::HTTP.post_form(
-      url,
-      :"group[resolved]" => 1,
-      :format => "xml",
-      :_method => :put,
-      :auth_token => ::Shelltoad::Configuration.key
-    )
-    raise "HTTP error: #{response}" unless response.is_a?(Net::HTTPSuccess)
-    true
-  end
+    #
+    # API
+    #
 
-
-  def to_s
-    "[##{self.id}] #{self.rails_env.first} #{self.error_message} #{self.file}:#{self.line_number}"
-  end
-
-  def id
-    @attributes[:id]
-  end
-
-  def resolved?
-    @attributes[:resolved]
-  end
-
-  def method_missing(meth, *args, &blk)
-    if attr = @attributes[meth]
-      attr
-    else
-      super(meth, *args, &blk)
+    def initialize(attributes, full = false)
+      @attributes = attributes
+      @data = attributes if full
     end
-  end
 
-  #
-  # Implementation
-  #
-  
-  protected
-  def path(format = nil)
-    "/errors/#{self.id}" + (format ? ".#{format}" : "")
-  end
+    def data
+      @data ||= Hoptoad::Error.find(self.id)
+    end
 
-  def url(format = nil)
-    URI.parse(URL.to_s + path(format))
-  end
+    def lines
+      self.data[:backtrace][:line]
+    end
 
-  def self.http_get(path, params = {})
-    params[:auth_token] = ::Shelltoad::Configuration.key
-    query = path + "?" + params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
-    @http ||= Net::HTTP.new(URL.host)
-    response = @http.get(query)
-    raise Shelltoad::ServiceNotAvailable.new(<<-EOI) unless response.is_a?(Net::HTTPSuccess)
-Hoptoad service not available. HTTP response:\n#{response.body}
-EOI
-    return response.body
-  end
+    def view
+      <<-EOI
+      #{self.error_message}
+      #{self.lines.join("\n")}
+      EOI
+    end
 
-  def self.parse(string)
-    Hash.from_xml(string).with_indifferent_access
+    def commit!
+      message = <<-EOI.gsub(/`/, "'")
+      #{url.to_s}
+
+      #{self.error_message}
+      EOI
+      output = `git commit -m "#{message}"`
+      if $?.success?
+        resolve!
+      end
+      output
+    end
+
+    def resolve!
+      return true if self.resolved?
+      Hoptoad::Error.put(path("xml"), :body => {:group => {:resolved => 1}})
+      true
+    end
+
+
+    def to_s
+      "[##{self.id}] #{self.rails_env.first} #{self.error_message} #{self.file}:#{self.line_number}"
+    end
+
+    def id
+      @attributes[:id]
+    end
+
+    def resolved?
+      @attributes[:resolved]
+    end
+
+    def [](key)
+      @attributes[key] || self.data[key]
+    end
+
+    def method_missing(meth, *args, &blk)
+      if attr = @attributes[meth]
+        attr
+      else
+        super(meth, *args, &blk)
+      end
+    end
+
+    #
+    # Implementation
+    #
+
+    protected
+    def path(format = nil)
+      "/errors/#{self.id}" + (format ? ".#{format}" : "")
+    end
+
+    def url(format = nil)
+      URI.parse(URL.to_s + path(format))
+    end
+
   end
 
 end
-

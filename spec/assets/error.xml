@@ -8,7 +8,7 @@
   <resolved type="boolean">false</resolved> 
   <error-class>ActiveRecord::StatementInvalid</error-class> 
   <error-message>ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates unique constraint "index_companies_on_slug" : INSERT INTO "companies" ("slug", "created_at", "title", "updated_at", "external_url", "logo_id", "custom") VALUES('abbott-associates</error-message> 
-  <id type="integer">4023713</id> 
+  <id type="integer">4040123</id> 
   <lighthouse-ticket-id type="integer" nil="true"></lighthouse-ticket-id> 
   <controller>domU-12-31-39-15-22-AC:14720:critical,high,medium,low</controller> 
   <file>/var/data/www/apps/startwire/shared/bundle/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract_adapter.rb</file> 

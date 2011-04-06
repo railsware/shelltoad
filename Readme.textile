@@ -6,8 +6,10 @@ h3. Configuration
 
 Create <pre><code>.shelltoadrc</code></pre> file in your project directory 
 with the application name and access key:
-<pre><code>project: myapp
-key: c285743ecbc285743ecbc285743ecbc285743ecb</code></pre> 
+<pre><code>account: myapp
+key: c285743ecbc285743ecbc285743ecbc285743ecb
+secure true # https usage. Default: false
+project_id: 123456 # see errors only under specified proejct. Default: all projects</code></pre> 
 
 h3. Commands
 

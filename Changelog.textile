@@ -1,3 +1,9 @@
+h3. 0.3.0
+
+* Support ssl in configuration
+* Support project id in configuration
+* Rework with hoptoad-api gem instead of ActiveSupport
+
 h3. 0.2.5
 
 * Bugfixes

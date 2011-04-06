@@ -32,8 +32,8 @@ RSpec.configure do |config|
       :body => File.new("spec/assets/error.xml").read
     )
     FakeWeb.register_uri(
-      :post,
-      "http://startdatelabs.hoptoadapp.com/errors/4040123" ,
+      :put,
+      "http://startdatelabs.hoptoadapp.com/errors/4040123.xml" ,
       :body => File.read('spec/assets/error.xml')
     )
 
@@ -45,5 +45,6 @@ RSpec.configure do |config|
   end
 
 end
+
 
 
