@@ -13,7 +13,7 @@ class Shelltoad
 
     def self.all(options = {})
       options[:project_id] ||= Configuration.project_id if Configuration.project_id
-      Hoptoad::Error.find(:all, options).map! do |attributes|
+      (Hoptoad::Error.find(:all, options) || []).map! do |attributes|
         self.new(attributes)
       end
     end

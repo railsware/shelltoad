@@ -60,3 +60,4 @@ end
   
 Hoptoad.auth_token = Shelltoad::Configuration.key
 Hoptoad.account = Shelltoad::Configuration.account
+Hoptoad.secure = Shelltoad::Configuration.secure?
