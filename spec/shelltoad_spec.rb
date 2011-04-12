@@ -11,13 +11,25 @@ describe Shelltoad do
   end
 
   describe ".run" do
+    subject { Shelltoad.run(*args) }
+
+
     [["error", TEST_ERROR], "errors", ["commit", TEST_ERROR], ["resolve", TEST_ERROR]].each do |command|
       describe "command:#{command.inspect}" do
-        subject { Shelltoad.run(*Array(command)) }
+        let(:args) {  Array(command) }
         it { should == 0 }
       end
     end
 
+
+    describe "open command" do
+      let(:args) { ["open", TEST_ERROR] }
+      before(:each) do
+        Shelltoad::Configuration.stubs(:browser).returns("true")
+      end
+      it {should  == 0}
+      
+    end
   end
 
 end

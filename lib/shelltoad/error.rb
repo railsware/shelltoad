@@ -7,18 +7,30 @@ class Shelltoad
 
     URL = URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com:80")
 
+    CACHE = {} # Runtime cache for http queries
+
     #
     # Class methods
     #
 
     def self.all(options = {})
       options[:project_id] ||= Configuration.project_id if Configuration.project_id
-      (Hoptoad::Error.find(:all, options) || []).map! do |attributes|
-        self.new(attributes)
-      end
+      CACHE[options] ||= (
+        (Hoptoad::Error.find(:all, options) || []).map! do |attributes|
+          self.new(attributes)
+        end
+      )
     end
 
     def self.magic_find(id)
+      if !id || id.to_s.empty?
+        Error.all.each do |error|
+          output error.to_s
+        end
+        output "\n"
+        id = Readline.readline("Input error id: ", true)
+      end
+
       error = id.to_s.size > 5 ? simple_finder(id) : magic_finder(id)
       if block_given?
         return yield(error)
@@ -40,6 +52,10 @@ class Shelltoad
       self.new(attributes, true)
     end
 
+    def self.output(*args)
+      Shelltoad.output(*args)
+    end
+
     #
     # API
     #
@@ -59,6 +75,7 @@ class Shelltoad
 
     def view
       <<-EOI
+      #{self.url.to_s}
       #{self.error_message}
       #{self.lines.join("\n")}
       EOI
@@ -100,13 +117,11 @@ class Shelltoad
       @attributes[key] || self.data[key]
     end
 
-    def method_missing(meth, *args, &blk)
-      if attr = @attributes[meth]
-        attr
-      else
-        super(meth, *args, &blk)
-      end
+    def url(format = nil)
+      URI.parse(URL.to_s + path(format))
     end
+
+
 
     #
     # Implementation
@@ -117,8 +132,12 @@ class Shelltoad
       "/errors/#{self.id}" + (format ? ".#{format}" : "")
     end
 
-    def url(format = nil)
-      URI.parse(URL.to_s + path(format))
+    def method_missing(meth, *args, &blk)
+      if attr = @attributes[meth]
+        attr
+      else
+        super(meth, *args, &blk)
+      end
     end
 
   end

@@ -8,8 +8,9 @@ Create <pre><code>.shelltoadrc</code></pre> file in your project directory
 with the application name and access key:
 <pre><code>account: myapp
 key: c285743ecbc285743ecbc285743ecbc285743ecb
-secure true # https usage. Default: false
-project_id: 123456 # see errors only under specified proejct. Default: all projects</code></pre> 
+secure: true # https usage. Default: false.
+project_id: 123456 # see errors only under specified proejct. Default: all projects.
+browser: firefox # specify browsers for open errors. Default: sensible-browser or firefox or _etc_ or explorer.</code></pre> 
 
 h3. Commands
 
@@ -17,9 +18,11 @@ h3. Commands
 * error, er [number] - display information about given error. Shortcut: shelltoad [number]
 * resolve, rv [number] - mark error as resolved in Hoptoad
 * commit, ci [number] - do commit to vcs with the information on the specified error and mark error resolved in Hoptoad
+* open, op [number] - open error page in browser
 
 Shelltoad supports 'magicfind' in all commands: 
 You don't need to type whole error id - just last three numbers is enough.
+Also all error-related commands support interactive menu if number is not specified.
 
 h3. Usage
 

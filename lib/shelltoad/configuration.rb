@@ -24,6 +24,10 @@ class Shelltoad::Configuration
     self.instance.account
   end
 
+  def self.browser
+    self.instance.browser
+  end
+
   def self.instance
     @instance ||= self.new
   end
@@ -54,6 +58,10 @@ class Shelltoad::Configuration
 
   def secure
     @config["secure"] # false by default
+  end
+
+  def browser
+    @config["browser"] || "sensible-browser"
   end
 
 end
