@@ -1,3 +1,8 @@
+h3. 0.4.0
+
+* Interactive menu for error select support
+* _open_ command to open error page in browser
+
 h3. 0.3.1
 
 * Bugfix configuration
