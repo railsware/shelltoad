@@ -30,6 +30,11 @@ describe Shelltoad do
       it {should  == 0}
       
     end
+
+    describe "help commad" do
+      let(:args) { "help" }
+      it {should == 0}
+    end
   end
 
 end

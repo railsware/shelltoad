@@ -3,8 +3,15 @@ class Shelltoad
   class Command
 
     class << self
+
+      #
+      # API
+      #
+      
       def run(command, *args)
         case command.to_s
+        when "-h", "--help", "help", "h"
+          display_help
         when "errors", "ers", nil, ""
           Error.all.each do |error|
             output error.to_s
@@ -26,7 +33,7 @@ class Shelltoad
           end
         when /^[\d]/
           magic_find(command) do |error|
-          output error.view
+            output error.view
           end
         else
           raise BaseException, "Command not found"
@@ -37,6 +44,10 @@ class Shelltoad
         return 1
       end
 
+      #
+      # Implementation
+      #
+      
       protected
       def magic_find(*args, &block)
         Error.magic_find(*args, &block)
@@ -56,6 +67,21 @@ class Shelltoad
         [Configuration.browser, "firefox", "chromium-browser", "start" ].find do |browser|
           system browser, url.to_s
         end
+      end
+
+      def display_help
+        output <<-EOI
+Usage: shelltoad command [<args>]
+
+Available commands:
+
+    errors   list all unresolved errors, this is the default
+    error    display information about given error. Shortcut: shelltoad <number>
+    resolve  mark error as resolved in Hoptoad
+    commit   do commit to vcs with the information on the specified error and mark error resolved in Hoptoad
+    open     open error page in browser
+EOI
+
       end
     end
   end
