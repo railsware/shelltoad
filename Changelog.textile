@@ -1,3 +1,7 @@
+h3. 0.4.1
+
+* "help" command
+
 h3. 0.4.0
 
 * Interactive menu for error select support
