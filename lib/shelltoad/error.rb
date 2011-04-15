@@ -5,7 +5,7 @@ require "hoptoad-api"
 class Shelltoad
   class Error
 
-    URL = URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com:80")
+    URL = URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com")
 
     CACHE = {} # Runtime cache for http queries
 
