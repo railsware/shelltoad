@@ -4,9 +4,6 @@ require "fakeweb"
 describe Shelltoad do
 
   before(:each) do
-    Shelltoad::Configuration.stubs(:key).returns("whatever")
-    Shelltoad::Configuration.stubs(:account).returns("startdatelabs")
-    Shelltoad::Configuration.stubs(:project_id).returns(14951)
     Shelltoad::Error.any_instance.stubs(:commit).returns(true)
   end
 

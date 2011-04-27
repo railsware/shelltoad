@@ -16,7 +16,7 @@ class Shelltoad
           Error.all.each do |error|
             output error.to_s
           end
-        when "error", "er"
+        when "error", "er", "show", "sh"
           magic_find(args.shift) do |error|
             output error.view
           end
@@ -33,7 +33,7 @@ class Shelltoad
           end
         when /^[\d]/
           magic_find(command) do |error|
-            output error.view
+            open error.url
           end
         else
           raise BaseException, "Command not found"
@@ -65,7 +65,9 @@ class Shelltoad
 
       def open(url)
         [Configuration.browser, "firefox", "chromium-browser", "start" ].find do |browser|
-          system browser, url.to_s
+          fork {
+            system browser, url.to_s
+          }
         end
       end
 
