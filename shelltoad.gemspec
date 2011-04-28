@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shelltoad}
-  s.version = "0.4.2"
+  s.version = "0.4.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bogdan Gusiev"]
-  s.date = %q{2011-04-15}
+  s.date = %q{2011-04-28}
   s.default_executable = %q{shelltoad}
   s.description = %q{
 }
