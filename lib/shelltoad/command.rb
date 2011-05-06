@@ -58,6 +58,9 @@ class Shelltoad
       end
 
       def commit(id)
+        unless self.changes_staged?
+          raise Shelltoad::BaseException, "No changes staged with git."
+        end
         magic_find(id) do |error|
           output error.commit!
         end
@@ -69,6 +72,10 @@ class Shelltoad
             system browser, url.to_s
           }
         end
+      end
+
+      def changes_staged?
+        !`git diff --staged`.empty?
       end
 
       def display_help

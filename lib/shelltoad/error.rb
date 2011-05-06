@@ -59,6 +59,7 @@ class Shelltoad
       URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com")
     end
 
+
     #
     # API
     #
@@ -84,7 +85,9 @@ class Shelltoad
       EOI
     end
 
+
     def commit!
+      
       message = <<-EOI.gsub(/`/, "'")
       #{url.to_s}
 
