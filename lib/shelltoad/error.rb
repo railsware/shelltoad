@@ -5,7 +5,6 @@ require "hoptoad-api"
 class Shelltoad
   class Error
 
-    URL = URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com")
 
     CACHE = {} # Runtime cache for http queries
 
@@ -56,6 +55,11 @@ class Shelltoad
       Shelltoad.output(*args)
     end
 
+    def self.base_url
+      URI.parse("#{Configuration.secure? ? "https" : "http"}://#{Configuration.account}.hoptoadapp.com")
+    end
+
+
     #
     # API
     #
@@ -81,7 +85,9 @@ class Shelltoad
       EOI
     end
 
+
     def commit!
+      
       message = <<-EOI.gsub(/`/, "'")
       #{url.to_s}
 
@@ -118,7 +124,7 @@ class Shelltoad
     end
 
     def url(format = nil)
-      URI.parse(URL.to_s + path(format))
+      URI.parse(self.class.base_url.to_s + path(format))
     end
 
 

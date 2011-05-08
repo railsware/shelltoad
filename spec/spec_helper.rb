@@ -43,6 +43,11 @@ RSpec.configure do |config|
       :body => File.read('spec/assets/error.xml')
     )
 
+    Shelltoad::Configuration.stubs(:key).returns("whatever")
+    Shelltoad::Configuration.stubs(:account).returns("startdatelabs")
+    Shelltoad::Configuration.stubs(:project_id).returns(14951)
+    Shelltoad::Configuration.stubs(:secure?).returns(false)
+    Hoptoad.secure =false
   end
 
   config.after(:each) do
