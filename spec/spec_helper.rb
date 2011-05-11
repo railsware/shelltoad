@@ -5,9 +5,15 @@ require "net/http"
 require 'rspec'
 require "mocha"
 require "fakeweb"
+require "http_logger"
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__),'..','lib'))
 require "shelltoad"
 
+require "fileutils"
+require "logger"
+
+FileUtils.rm_f("http.log")
+Net::HTTP.logger = Logger.new("http.log")
 
 TEST_ERROR = 4040123
 
