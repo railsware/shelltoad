@@ -19,3 +19,6 @@ Jeweler::Tasks.new do |gemspec|
   gemspec.homepage = "http://github.com/railsware/shelltoad"
   gemspec.authors = ["Bogdan Gusiev"]
 end
+
+task :default => :spec do
+end
