@@ -6,6 +6,20 @@ require 'rspec'
 require "mocha"
 require "fakeweb"
 require "http_logger"
+
+
+unless File.exists?(".shelltoadrc")
+  f = File.new(".shelltoadrc", "w")
+  f << YAML.dump(
+    "project" => "startdatelabs",
+    "key" => "123456",
+    "secure" => true
+  )
+  f.close
+
+end
+
+
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__),'..','lib'))
 require "shelltoad"
 
