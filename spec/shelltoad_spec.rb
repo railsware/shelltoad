@@ -25,7 +25,7 @@ describe Shelltoad do
         Shelltoad::Configuration.stubs(:browser).returns("true")
       end
       it {should  == 0}
-      
+
     end
 
     describe "help commad" do
@@ -34,18 +34,25 @@ describe Shelltoad do
     end
 
     describe "commit command" do
-      subject { Shelltoad.run("commit", TEST_ERROR) }
-        before(:each) do
-          Shelltoad::Command.stubs(:changes_staged?).returns(_staged)
-        end
-      context "when changes staged in git" do
-        let(:_staged) { true }
-        it { should == 0 }
+      subject { Shelltoad.run("commit", TEST_ERROR, *_args) }
+      before(:each) do
+        Shelltoad::Command.stubs(:changes_staged?).returns(_staged)
       end
+      
+      let(:_staged) { true }
+      let(:_args) { [] }
+      it { should == 0 }
+      
       context "when no changes staged in git" do
         let(:_staged) { false }
         it { should == 1 }
       end
+
+      context "when -m argument specified" do
+        let(:_args) { ["-m", "My commit"]}
+        it {should == 0}
+      end
+
     end
   end
 

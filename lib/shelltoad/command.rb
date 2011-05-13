@@ -21,7 +21,7 @@ class Shelltoad
             output error.view
           end
         when "commit", "ci"
-          commit(args.shift)
+          commit(*args)
         when "resolve", "rv"
           magic_find(args.shift) do |error|
             error.resolve!
@@ -57,12 +57,20 @@ class Shelltoad
         Shelltoad.output(*args)
       end
 
-      def commit(id)
+      def commit(*args)
+        opts = OptionParser.new do |opts|
+          opts.banner = "Do git commit with information from pivotal story"
+          opts.on("-m [MESSAGE]", "Add addional MESSAGE to comit") do |message|
+            @message = message
+          end
+        end
+        opts.parse!(args)
+
         unless self.changes_staged?
           raise Shelltoad::BaseException, "No changes staged with git."
         end
-        magic_find(id) do |error|
-          output error.commit!
+        magic_find(args.shift) do |error|
+          output error.commit!(@message)
         end
       end # commit(id, args)
 

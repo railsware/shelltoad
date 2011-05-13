@@ -86,13 +86,20 @@ class Shelltoad
     end
 
 
-    def commit!
+    def commit!(custom_message)
       
-      message = <<-EOI.gsub(/`/, "'")
-      #{url.to_s}
+      message = ""
+      unless custom_message.nil? || custom_message.strip.empty?
+        message << custom_message + "\n"
+        message << "\n"
+      end
+      message << url.to_s + "\n"
+      if custom_message.nil? || custom_message.strip.empty?
+        message << "\n"
+      end
+      message << self.error_message + "\n"
+      message.gsub!(/`/, "'")
 
-      #{self.error_message}
-      EOI
       output = `git commit -m "#{message}"`
       if $?.success?
         resolve!
