@@ -47,7 +47,7 @@ ActiveRecord::StatementInvalid: PGError: ERROR: duplicate key value violates uni
 # Do changes you want
 $ git add .
 #only git is supported right now
-$ shelltoad commit 713 
+$ shelltoad commit -m "Fixed concurrent db queries problem for company_relations table" 713
 [dev 47f09ec]     http://xxx.hoptoadapp.com//errors/4023713
  1 files changed, 1 insertions(+), 1 deletions(-)</code></pre>
 
