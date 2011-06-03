@@ -1,3 +1,4 @@
+require "optparse"
 require "readline"
 class Shelltoad
   class Command
